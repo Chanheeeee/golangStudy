@@ -3,10 +3,9 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"os"
 )
 
-var stdin = bufio.NewReader(os.Stdin)
+var stdin = bufio.Wri
 
 func InputIntValue() (int, error) {
 	var n int

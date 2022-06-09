@@ -13,6 +13,7 @@ func (p PasswordError) Error() string {
 
 // 에러를 반환하는 함수
 // error : 인터페이스 타입
+// 인터페이스 변수에 인터페이스 메소드를 구현한 객체 대입.
 func RegisterAccount(name, password string) error {
 	if len(password) < 8 {
 		return PasswordError{len(password), 8}
@@ -25,6 +26,7 @@ func main() {
 
 	err := RegisterAccount("chany", "ckslck")
 
+	fmt.Printf("%v \n", err)
 	if err != nil {
 		if errInfo, ok := err.(PasswordError); ok {
 			fmt.Printf("%v Len:%d RequireLen:%d\n", errInfo, errInfo.Len, errInfo.RequireLen)
